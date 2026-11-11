@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transparencia | experienciaUNITI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rausch: '#FF385C', rauschdark: '#E00B41', ink: '#222222',
+            haze: '#3F3F3F', storm: '#6A6A6A', mute: '#929292',
+            fog: '#F7F7F7', line: '#DDDDDD', info: '#428BFF',
+          },
+          fontFamily: { cereal: ['Inter', 'Circular', '-apple-system', 'system-ui', 'Roboto', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-cereal font-medium text-ink bg-white" x-data="{ tab: 'finanzas' }">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold" style="background: linear-gradient(90deg,#FF385C 0%,#E00B41 100%)">e</span>
+        <span class="font-bold text-xl tracking-tight">experiencia<span class="text-rausch">UNITI</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="recursos.html" class="text-haze hover:text-ink transition">Recursos</a>
+        <a href="convocatorias.html" class="text-haze hover:text-ink transition">Convocatorias y Becas</a>
+        <a href="comercial.html" class="text-haze hover:text-ink transition">Comercial</a>
+        <a href="blog.html" class="text-haze hover:text-ink transition">Blog</a>
+        <a href="transparencia.html" class="text-ink">Transparencia</a>
+      </nav>
+      <a href="recursos.html" class="inline-flex items-center bg-rausch text-white rounded-full py-2.5 px-5 text-sm font-semibold hover:bg-rauschdark transition shadow-sm">Recursos</a>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <p class="text-rausch font-bold text-xs mb-3">Rendición de cuentas</p>
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug">Transparencia</h1>
+    <p class="mt-4 text-storm text-lg max-w-2xl">Recopilamos y compartimos la información pública que la universidad está obligada a mostrar: finanzas, contratos y convocatorias, para que cualquier estudiante pueda consultarla fácilmente.</p>
+
+    <div class="mt-8 flex gap-2 flex-wrap">
+      <button @click="tab = 'finanzas'" :class="tab === 'finanzas' ? 'bg-white border border-rausch text-rausch' : 'bg-fog text-haze hover:bg-line/40'" class="rounded-full px-5 py-2 text-sm font-semibold transition">Finanzas</button>
+      <button @click="tab = 'contratos'" :class="tab === 'contratos' ? 'bg-white border border-rausch text-rausch' : 'bg-fog text-haze hover:bg-line/40'" class="rounded-full px-5 py-2 text-sm font-semibold transition">Contratos</button>
+      <button @click="tab = 'convocatorias'" :class="tab === 'convocatorias' ? 'bg-white border border-rausch text-rausch' : 'bg-fog text-haze hover:bg-line/40'" class="rounded-full px-5 py-2 text-sm font-semibold transition">Convocatorias</button>
+    </div>
+
+    <section x-show="tab === 'finanzas'" class="mt-10">
+      <div class="rounded-2xl border border-line overflow-hidden">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-fog text-xs text-storm">
+            <tr>
+              <th class="px-6 py-4">Documento</th>
+              <th class="px-6 py-4">Ejercicio</th>
+              <th class="px-6 py-4">Tipo</th>
+              <th class="px-6 py-4">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-line">
+              <td class="px-6 py-4 font-semibold">Presupuesto de ingresos y egresos</td>
+              <td class="px-6 py-4 text-storm">2026</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Presupuesto</span></td>
+              <td class="px-6 py-4"><a href="#" class="text-info font-semibold hover:underline">Descargar PDF</a></td>
+            </tr>
+            <tr class="border-t border-line">
+              <td class="px-6 py-4 font-semibold">Informe financiero trimestral</td>
+              <td class="px-6 py-4 text-storm">2026 · Q3</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Informe</span></td>
+              <td class="px-6 py-4"><a href="#" class="text-info font-semibold hover:underline">Descargar PDF</a></td>
+            </tr>
+            <tr class="border-t border-line">
+              <td class="px-6 py-4 font-semibold">Cuenta pública anual</td>
+              <td class="px-6 py-4 text-storm">2025</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Cuenta pública</span></td>
+              <td class="px-6 py-4"><a href="#" class="text-info font-semibold hover:underline">Descargar PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-storm">Los enlaces se irán actualizando conforme se publiquen los documentos oficiales. Fuente: información pública institucional.</p>
+    </section>
+
+    <section x-show="tab === 'contratos'" x-cloak class="mt-10">
+      <div class="rounded-2xl border border-line overflow-hidden">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-fog text-xs text-storm">
+            <tr>
+              <th class="px-6 py-4">Contrato</th>
+              <th class="px-6 py-4">Proveedor</th>
+              <th class="px-6 py-4">Monto</th>
+              <th class="px-6 py-4">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-line">
+              <td class="px-6 py-4 font-semibold">Servicios de plataformas educativas</td>
+              <td class="px-6 py-4 text-storm">Por publicar</td>
+              <td class="px-6 py-4 text-storm">Por publicar</td>
+              <td class="px-6 py-4"><a href="#" class="text-info font-semibold hover:underline">Ver detalle</a></td>
+            </tr>
+            <tr class="border-t border-line">
+              <td class="px-6 py-4 font-semibold">Mantenimiento de equipamiento</td>
+              <td class="px-6 py-4 text-storm">Por publicar</td>
+              <td class="px-6 py-4 text-storm">Por publicar</td>
+              <td class="px-6 py-4"><a href="#" class="text-info font-semibold hover:underline">Ver detalle</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-storm">Tabla de ejemplo: los datos se completarán con la información pública disponible.</p>
+    </section>
+
+    <section x-show="tab === 'convocatorias'" x-cloak class="mt-10">
+      <div class="rounded-2xl border border-line overflow-hidden">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-fog text-xs text-storm">
+            <tr>
+              <th class="px-6 py-4">Convocatoria</th>
+              <th class="px-6 py-4">Fecha de publicación</th>
+              <th class="px-6 py-4">Estado</th>
+              <th class="px-6 py-4">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-line">
+              <td class="px-6 py-4 font-semibold">Contratación de personal docente</td>
+              <td class="px-6 py-4 text-storm">Por publicar</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Abierta</span></td>
+              <td class="px-6 py-4"><a href="#" class="text-info font-semibold hover:underline">Ver bases</a></td>
+            </tr>
+            <tr class="border-t border-line">
+              <td class="px-6 py-4 font-semibold">Convenios de colaboración</td>
+              <td class="px-6 py-4 text-storm">Por publicar</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Cerrada</span></td>
+              <td class="px-6 py-4"><a href="#" class="text-info font-semibold hover:underline">Ver resultados</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="mt-12 rounded-2xl bg-fog p-8">
+      <h2 class="font-bold text-xl">Compromiso</h2>
+      <p class="mt-2 text-storm">Solo compartimos información <strong>ya pública</strong> emitida por la universidad o por autoridades competentes. Si encuentras un documento que falta, escríbenos y lo agregaremos citando su fuente.</p>
+    </div>
+  </main>
+
+  <footer class="border-t border-line bg-fog">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-storm">
+      <span>© 2026 experienciaUNITI · Hecho por estudiantes, para estudiantes</span>
+      <div class="flex gap-4 font-semibold">
+        <a href="index.html" class="hover:underline">Inicio</a>
+        <a href="recursos.html" class="hover:underline">Recursos</a>
+        <a href="convocatorias.html" class="hover:underline">Convocatorias</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>[x-cloak]{display:none!important}</style>
+</body>
+</html>

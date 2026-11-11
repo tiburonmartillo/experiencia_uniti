@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convocatorias, becas y beneficios | experienciaUNITI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rausch: '#FF385C', rauschdark: '#E00B41', ink: '#222222',
+            haze: '#3F3F3F', storm: '#6A6A6A', mute: '#929292',
+            fog: '#F7F7F7', line: '#DDDDDD', info: '#428BFF',
+          },
+          fontFamily: { cereal: ['Inter', 'Circular', '-apple-system', 'system-ui', 'Roboto', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-cereal font-medium text-ink bg-white" x-data="{ tab: 'becas' }">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold" style="background: linear-gradient(90deg,#FF385C 0%,#E00B41 100%)">e</span>
+        <span class="font-bold text-xl tracking-tight">experiencia<span class="text-rausch">UNITI</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="recursos.html" class="text-haze hover:text-ink transition">Recursos</a>
+        <a href="convocatorias.html" class="text-ink">Convocatorias y Becas</a>
+        <a href="comercial.html" class="text-haze hover:text-ink transition">Comercial</a>
+        <a href="blog.html" class="text-haze hover:text-ink transition">Blog</a>
+        <a href="transparencia.html" class="text-haze hover:text-ink transition">Transparencia</a>
+      </nav>
+      <a href="recursos.html" class="inline-flex items-center bg-rausch text-white rounded-full py-2.5 px-5 text-sm font-semibold hover:bg-rauschdark transition shadow-sm">Recursos</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <p class="text-rausch font-bold text-xs mb-3">Aprovecha al máximo</p>
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug">Convocatorias, becas y beneficios</h1>
+    <p class="mt-4 text-storm text-lg max-w-2xl">Oportunidades y ventajas de ser estudiante: desde becas oficiales hasta software premium gratis.</p>
+
+    <div class="mt-8 flex gap-2 flex-wrap">
+      <button @click="tab = 'becas'" :class="tab === 'becas' ? 'bg-white border border-rausch text-rausch' : 'bg-fog text-haze hover:bg-line/40'" class="rounded-full px-5 py-2 text-sm font-semibold transition">Becas y convocatorias</button>
+      <button @click="tab = 'beneficios'" :class="tab === 'beneficios' ? 'bg-white border border-rausch text-rausch' : 'bg-fog text-haze hover:bg-line/40'" class="rounded-full px-5 py-2 text-sm font-semibold transition">Beneficios estudiantiles</button>
+    </div>
+
+    <section x-show="tab === 'becas'" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-line p-6">
+        <span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Convocatoria</span>
+        <h3 class="mt-3 font-bold text-lg">Becas internas UNITI</h3>
+        <p class="mt-2 text-sm text-storm">Becas de manutención, excelencia e inclusión que la universidad publica cada ciclo. Consulta los requisitos y fechas en la página oficial.</p>
+        <p class="mt-4 text-xs text-storm">📌 Verifica siempre la fuente oficial antes de aplicar.</p>
+      </div>
+      <div class="rounded-2xl border border-line p-6">
+        <span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Gobierno</span>
+        <h3 class="mt-3 font-bold text-lg">Programas federales y estatales</h3>
+        <p class="mt-2 text-sm text-storm">Becas y apoyos gubernamentales para educación superior. Publicamos las convocatorias relevantes para la comunidad.</p>
+      </div>
+      <div class="rounded-2xl border border-line p-6">
+        <span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1">Privado</span>
+        <h3 class="mt-3 font-bold text-lg">Becas de empresas y fundaciones</h3>
+        <p class="mt-2 text-sm text-storm">Programas del sector privado para estudiantes de carreras tecnológicas: tecnología, ingeniería e innovación.</p>
+      </div>
+    </section>
+
+    <section x-show="tab === 'beneficios'" x-cloak class="mt-10 grid sm:grid-cols-2 gap-6">
+      <a href="https://education.github.com/pack" target="_blank" rel="noopener" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-fog flex items-center justify-center font-bold">Git</span>
+          <h3 class="font-bold text-lg group-hover:text-rausch transition">GitHub Student Developer Pack</h3>
+        </div>
+        <p class="mt-3 text-sm text-storm leading-relaxed">Lo mejor para estudiantes de programación: GitHub Pro gratis, créditos de nube, dominios, Copilot y decenas de herramientas partner. Solo necesitas tu correo institucional.</p>
+        <span class="mt-4 inline-block text-xs font-semibold text-rausch">Gratis con correo institucional →</span>
+      </a>
+      <a href="https://www.figma.com/education/" target="_blank" rel="noopener" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-fog flex items-center justify-center font-bold">Fg</span>
+          <h3 class="font-bold text-lg group-hover:text-rausch transition">Figma for Education</h3>
+        </div>
+        <p class="mt-3 text-sm text-storm leading-relaxed">Figma Professional gratis por 2 años para estudiantes y educadores. Ideal para diseñar interfaces, prototipos y trabajar en equipo en proyectos de innovación digital.</p>
+        <span class="mt-4 inline-block text-xs font-semibold text-rausch">Gratis con acreditación estudiantil →</span>
+      </a>
+      <a href="https://azure.microsoft.com/free/students/" target="_blank" rel="noopener" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-fog flex items-center justify-center font-bold">Az</span>
+          <h3 class="font-bold text-lg group-hover:text-rausch transition">Azure for Students</h3>
+        </div>
+        <p class="mt-3 text-sm text-storm leading-relaxed">100 USD de crédito en la nube de Microsoft sin tarjeta, más servicios gratuitos mientras estudias. Perfecto para desplegar tus proyectos.</p>
+        <span class="mt-4 inline-block text-xs font-semibold text-rausch">Gratis con correo institucional →</span>
+      </a>
+      <a href="https://www.jetbrains.com/community/education/" target="_blank" rel="noopener" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-fog flex items-center justify-center font-bold">JB</span>
+          <h3 class="font-bold text-lg group-hover:text-rausch transition">JetBrains para estudiantes</h3>
+        </div>
+        <p class="mt-3 text-sm text-storm leading-relaxed">Todos los IDEs profesionales (PyCharm, WebStorm, IntelliJ…) gratis mientras tengas status de estudiante verificado.</p>
+        <span class="mt-4 inline-block text-xs font-semibold text-rausch">Gratis con acreditación estudiantil →</span>
+      </a>
+      <a href="https://www.notion.com/students" target="_blank" rel="noopener" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-fog flex items-center justify-center font-bold">N</span>
+          <h3 class="font-bold text-lg group-hover:text-rausch transition">Notion para educación</h3>
+        </div>
+        <p class="mt-3 text-sm text-storm leading-relaxed">Notion Plus gratis para estudiantes: organiza apuntes, proyectos y tu vida académica en un solo lugar.</p>
+        <span class="mt-4 inline-block text-xs font-semibold text-rausch">Gratis con correo institucional →</span>
+      </a>
+      <div class="rounded-2xl bg-fog p-6">
+        <h3 class="font-bold text-lg">Consejo</h3>
+        <p class="mt-3 text-sm text-storm leading-relaxed">La mayoría de estos beneficios se activan con tu <strong>correo institucional</strong> o una constancia de estudios. Tramita tu constancia al inicio del semestre y tenla lista en PDF.</p>
+      </div>
+    </section>
+
+    <div class="mt-12 rounded-2xl border border-line bg-fog p-8">
+      <h2 class="font-bold text-xl">Ojo con las estafas</h2>
+      <p class="mt-2 text-storm">Ninguna beca legítima te pedirá depósitos ni tus contraseñas. Ante la duda, verifica directamente con la universidad o con la institución convocante.</p>
+    </div>
+  </main>
+
+  <footer class="border-t border-line bg-fog">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-storm">
+      <span>© 2026 experienciaUNITI · Hecho por estudiantes, para estudiantes</span>
+      <div class="flex gap-4 font-semibold">
+        <a href="index.html" class="hover:underline">Inicio</a>
+        <a href="recursos.html" class="hover:underline">Recursos</a>
+        <a href="transparencia.html" class="hover:underline">Transparencia</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>[x-cloak]{display:none!important}</style>
+</body>
+</html>

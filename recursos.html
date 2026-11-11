@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursos para aprender | experienciaUNITI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rausch: '#FF385C', rauschdark: '#E00B41', ink: '#222222',
+            haze: '#3F3F3F', storm: '#6A6A6A', mute: '#929292',
+            fog: '#F7F7F7', line: '#DDDDDD', info: '#428BFF',
+          },
+          fontFamily: { cereal: ['Inter', 'Circular', '-apple-system', 'system-ui', 'Roboto', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-cereal font-medium text-ink bg-white" x-data="resourcesPage()">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold" style="background: linear-gradient(90deg,#FF385C 0%,#E00B41 100%)">e</span>
+        <span class="font-bold text-xl tracking-tight">experiencia<span class="text-rausch">UNITI</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="recursos.html" class="text-ink">Recursos</a>
+        <a href="convocatorias.html" class="text-haze hover:text-ink transition">Convocatorias y Becas</a>
+        <a href="comercial.html" class="text-haze hover:text-ink transition">Comercial</a>
+        <a href="blog.html" class="text-haze hover:text-ink transition">Blog</a>
+        <a href="transparencia.html" class="text-haze hover:text-ink transition">Transparencia</a>
+      </nav>
+      <a href="convocatorias.html" class="inline-flex items-center bg-rausch text-white rounded-full py-2.5 px-5 text-sm font-semibold hover:bg-rauschdark transition shadow-sm">Becas y beneficios</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <p class="text-rausch font-bold text-xs mb-3">Aprende a tu ritmo</p>
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug">Recursos para aprender</h1>
+    <p class="mt-4 text-storm text-lg max-w-2xl">Plataformas, cursos y retos recomendados por estudiantes de Programación e Innovación Digital. La mayoría son gratuitos.</p>
+
+    <div class="mt-8 flex flex-wrap gap-2">
+      <template x-for="(cat, i) in categories" :key="i">
+        <button @click="active = cat"
+          :class="active === cat ? 'bg-white border border-rausch text-rausch' : 'bg-fog text-haze hover:bg-line/40'"
+          class="rounded-full px-5 py-2 text-sm font-semibold transition" x-text="cat"></button>
+      </template>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template x-for="r in filtered()" :key="r.name">
+        <a :href="r.url" target="_blank" rel="noopener"
+           class="group rounded-2xl border border-line hover:border-ink transition p-6 flex flex-col">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl" x-text="r.icon"></span>
+            <span class="text-xs font-semibold bg-fog text-haze rounded-full px-3 py-1" x-text="r.free ? 'Gratis' : 'Freemium'"></span>
+          </div>
+          <h3 class="mt-4 font-bold text-lg group-hover:text-rausch transition" x-text="r.name"></h3>
+          <p class="mt-1 text-sm font-semibold text-haze" x-text="r.category"></p>
+          <p class="mt-2 text-sm text-storm leading-relaxed flex-1" x-text="r.desc"></p>
+          <span class="mt-4 text-sm font-semibold text-rausch">Visitar sitio →</span>
+        </a>
+      </template>
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-fog p-8">
+      <h2 class="font-bold text-xl">¿Conoces otro recurso?</h2>
+      <p class="mt-2 text-storm">Compártelo con la comunidad y lo agregamos a la lista. Los mejores recursos son los que ya probaste.</p>
+    </div>
+  </main>
+
+  <footer class="border-t border-line bg-fog">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-storm">
+      <span>© 2026 experienciaUNITI · Hecho por estudiantes, para estudiantes</span>
+      <div class="flex gap-4 font-semibold">
+        <a href="index.html" class="hover:underline">Inicio</a>
+        <a href="convocatorias.html" class="hover:underline">Convocatorias</a>
+        <a href="transparencia.html" class="hover:underline">Transparencia</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function resourcesPage() {
+      return {
+        active: 'Todos',
+        categories: ['Todos', 'Cursos', 'Práctica', 'Datos', 'Diseño', 'Documentación'],
+        resources: [
+          { name: 'Coursera', category: 'Cursos', icon: '🎓', free: true, url: 'https://www.coursera.org', desc: 'Cursos y certificados de universidades y empresas. Muchos cursos se pueden auditar gratis.' },
+          { name: 'IBM SkillsBuild', category: 'Cursos', icon: '🧠', free: true, url: 'https://skillsbuild.org', desc: 'Aprendizaje gratuito en IA, ciberseguridad, nube y habilidades profesionales, con credenciales digitales.' },
+          { name: 'SQL Murder Mystery', category: 'Práctica', icon: '🕵️', free: true, url: 'https://mystery.knightlab.com', desc: 'Aprende SQL resolviendo un crimen: un juego de detectives para practicar consultas SELECT.' },
+          { name: 'freeCodeCamp', category: 'Cursos', icon: '🔥', free: true, url: 'https://www.freecodecamp.org', desc: 'Curriculum completo de desarrollo web y programación con certificaciones gratuitas.' },
+          { name: 'Exercism', category: 'Práctica', icon: '💪', free: true, url: 'https://exercism.org', desc: 'Ejercicios de programación en decenas de lenguajes con mentores voluntarios.' },
+          { name: 'Kaggle Learn', category: 'Datos', icon: '📊', free: true, url: 'https://www.kaggle.com/learn', desc: 'Micro-cursos gratuitos de Python, SQL, machine learning y ciencia de datos.' },
+          { name: 'SQLBolt', category: 'Datos', icon: '⚡', free: true, url: 'https://sqlbolt.com', desc: 'Lecciones interactivas de SQL desde cero, directo en el navegador.' },
+          { name: 'The Odin Project', category: 'Cursos', icon: '🛠️', free: true, url: 'https://www.theodinproject.com', desc: 'Ruta completa y gratuita para convertirte en desarrollador full stack.' },
+          { name: 'MDN Web Docs', category: 'Documentación', icon: '📖', free: true, url: 'https://developer.mozilla.org/es/', desc: 'La referencia definitiva de HTML, CSS y JavaScript, en español.' },
+          { name: 'Figma', category: 'Diseño', icon: '🎨', free: true, url: 'https://www.figma.com/education/', desc: 'Diseño de interfaces colaborativo. Gratis para estudiantes con Figma for Education.' },
+          { name: 'Canva', category: 'Diseño', icon: '🖌️', free: true, url: 'https://www.canva.com', desc: 'Diseño gráfico rápido para presentaciones, posters y material de proyectos.' },
+          { name: 'LeetCode', category: 'Práctica', icon: '🧩', free: true, url: 'https://leetcode.com', desc: 'Retos de algoritmos para prepararte para entrevistas técnicas.' },
+        ],
+        filtered() {
+          if (this.active === 'Todos') return this.resources;
+          return this.resources.filter(r => r.category === this.active);
+        },
+      };
+    }
+  </script>
+</body>
+</html>

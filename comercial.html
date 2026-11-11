@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comercial | experienciaUNITI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rausch: '#FF385C', rauschdark: '#E00B41', ink: '#222222',
+            haze: '#3F3F3F', storm: '#6A6A6A', mute: '#929292',
+            fog: '#F7F7F7', line: '#DDDDDD', info: '#428BFF',
+          },
+          fontFamily: { cereal: ['Inter', 'Circular', '-apple-system', 'system-ui', 'Roboto', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-cereal font-medium text-ink bg-white">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold" style="background: linear-gradient(90deg,#FF385C 0%,#E00B41 100%)">e</span>
+        <span class="font-bold text-xl tracking-tight">experiencia<span class="text-rausch">UNITI</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="recursos.html" class="text-haze hover:text-ink transition">Recursos</a>
+        <a href="convocatorias.html" class="text-haze hover:text-ink transition">Convocatorias y Becas</a>
+        <a href="comercial.html" class="text-ink">Comercial</a>
+        <a href="blog.html" class="text-haze hover:text-ink transition">Blog</a>
+        <a href="transparencia.html" class="text-haze hover:text-ink transition">Transparencia</a>
+      </nav>
+      <a href="recursos.html" class="inline-flex items-center bg-rausch text-white rounded-full py-2.5 px-5 text-sm font-semibold hover:bg-rauschdark transition shadow-sm">Recursos</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <p class="text-rausch font-bold text-xs mb-3">Recomendaciones</p>
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug">Sección comercial</h1>
+    <p class="mt-4 text-storm text-lg max-w-2xl">Herramientas y servicios que usamos y recomendamos. Algunos enlaces son de referencia: si compras a través de ellos, el proyecto recibe una pequeña comisión sin costo extra para ti.</p>
+
+    <div class="mt-10 grid sm:grid-cols-2 gap-6">
+      <a href="#" class="group rounded-2xl border border-line hover:border-ink transition p-8">
+        <div class="flex items-center gap-3">
+          <span class="w-12 h-12 rounded-full bg-fog flex items-center justify-center text-xl">💳</span>
+          <div>
+            <h3 class="font-bold text-lg group-hover:text-rausch transition">Mercado Pago</h3>
+            <p class="text-xs text-storm">Pagos y envíos</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-storm leading-relaxed">Cuenta digital para recibir pagos, transferir y comprar en línea. Útil para ventas escolares, proyectos y freelances.</p>
+        <span class="mt-4 inline-block text-xs font-semibold bg-fog rounded-full px-3 py-1 text-haze">Enlace de referencia</span>
+      </a>
+      <a href="#" class="group rounded-2xl border border-line hover:border-ink transition p-8">
+        <div class="flex items-center gap-3">
+          <span class="w-12 h-12 rounded-full bg-fog flex items-center justify-center text-xl">📦</span>
+          <div>
+            <h3 class="font-bold text-lg group-hover:text-rausch transition">Amazon</h3>
+            <p class="text-xs text-storm">Tecnología y útiles</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-storm leading-relaxed">Desde libros de programación hasta equipos y accesorios para tus proyectos. Compara precios antes de comprar.</p>
+        <span class="mt-4 inline-block text-xs font-semibold bg-fog rounded-full px-3 py-1 text-haze">Enlace de referencia</span>
+      </a>
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-fog p-8">
+      <h2 class="font-bold text-xl">Transparencia comercial</h2>
+      <ul class="mt-4 space-y-2 text-sm text-storm list-disc list-inside">
+        <li>Los enlaces marcados como <strong>referencia</strong> pueden generar una comisión para el proyecto.</li>
+        <li>Nunca recomendamos un producto solo por la comisión: primero lo usamos.</li>
+        <li>Los ingresos se destinan a dominio, hosting y actividades de la comunidad.</li>
+        <li>Si una empresa deja de ser útil para estudiantes, la quitamos.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="border-t border-line bg-fog">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-storm">
+      <span>© 2026 experienciaUNITI · Hecho por estudiantes, para estudiantes</span>
+      <div class="flex gap-4 font-semibold">
+        <a href="index.html" class="hover:underline">Inicio</a>
+        <a href="recursos.html" class="hover:underline">Recursos</a>
+        <a href="transparencia.html" class="hover:underline">Transparencia</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

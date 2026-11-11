@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>experienciaUNITI | Comunidad de estudiantes</title>
+  <meta name="description" content="Recursos, convocatorias, becas y beneficios para estudiantes de Programación e Innovación Digital de la Universidad Intercultural para la Igualdad (UNITI)." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rausch: '#FF385C', rauschdark: '#E00B41', ink: '#222222',
+            haze: '#3F3F3F', storm: '#6A6A6A', mute: '#929292',
+            fog: '#F7F7F7', line: '#DDDDDD', info: '#428BFF',
+          },
+          fontFamily: { cereal: ['Inter', 'Circular', '-apple-system', 'system-ui', 'Roboto', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-cereal font-medium text-ink bg-white" x-data="{ mobileOpen: false }">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold" style="background: linear-gradient(90deg,#FF385C 0%,#E00B41 100%)">e</span>
+        <span class="font-bold text-xl tracking-tight">experiencia<span class="text-rausch">UNITI</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="recursos.html" class="text-haze hover:text-ink transition">Recursos</a>
+        <a href="convocatorias.html" class="text-haze hover:text-ink transition">Convocatorias y Becas</a>
+        <a href="comercial.html" class="text-haze hover:text-ink transition">Comercial</a>
+        <a href="blog.html" class="text-haze hover:text-ink transition">Blog</a>
+        <a href="transparencia.html" class="text-haze hover:text-ink transition">Transparencia</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="blog.html" class="hidden sm:inline-flex items-center gap-2 border border-line rounded-full py-2 px-4 text-sm font-semibold hover:bg-fog transition">
+          Publica un artículo
+        </a>
+        <a href="recursos.html" class="inline-flex items-center bg-rausch text-white rounded-full py-2.5 px-5 text-sm font-semibold hover:bg-rauschdark transition shadow-sm">
+          Empieza a aprender
+        </a>
+        <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2.5 rounded-full border border-line" aria-label="Menú">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div x-show="mobileOpen" class="md:hidden border-t border-line bg-white px-6 py-4 flex flex-col gap-4 text-sm font-semibold" x-cloak>
+      <a href="recursos.html" class="text-haze">Recursos</a>
+      <a href="convocatorias.html" class="text-haze">Convocatorias y Becas</a>
+      <a href="comercial.html" class="text-haze">Comercial</a>
+      <a href="blog.html" class="text-haze">Blog</a>
+      <a href="transparencia.html" class="text-haze">Transparencia</a>
+    </div>
+  </header>
+
+  <section class="bg-fog">
+    <div class="max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-rausch font-bold text-xs mb-4">Programación e Innovación Digital · UNITI</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-snug tracking-tight">
+          Todo lo que necesitas para crecer como estudiante, en un solo lugar.
+        </h1>
+        <p class="mt-6 text-lg text-storm leading-relaxed">
+          Recursos para aprender, convocatorias, becas y beneficios exclusivos. Hecho por y para estudiantes de la Universidad Intercultural para la Igualdad.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="recursos.html" class="bg-rausch text-white rounded-full py-3 px-7 font-semibold hover:bg-rauschdark transition shadow-sm">Explorar recursos</a>
+          <a href="convocatorias.html" class="border border-ink rounded-full py-3 px-7 font-semibold hover:bg-fog transition">Ver becas y beneficios</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-6 border border-line">
+          <div class="w-10 h-10 rounded-xl bg-fog flex items-center justify-center font-bold">R</div>
+          <h3 class="mt-4 font-bold">Recursos</h3>
+          <p class="mt-1 text-sm text-storm">Coursera, IBM SkillsBuild, SQL Mystery y más.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-line mt-8">
+          <div class="w-10 h-10 rounded-xl bg-fog flex items-center justify-center font-bold">B</div>
+          <h3 class="mt-4 font-bold">Beneficios</h3>
+          <p class="mt-1 text-sm text-storm">GitHub Student Pack, Figma for Education…</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-line">
+          <div class="w-10 h-10 rounded-xl bg-fog flex items-center justify-center font-bold">T</div>
+          <h3 class="mt-4 font-bold">Transparencia</h3>
+          <p class="mt-1 text-sm text-storm">Información pública de la universidad.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-line mt-8">
+          <div class="w-10 h-10 rounded-xl bg-fog flex items-center justify-center font-bold">B</div>
+          <h3 class="mt-4 font-bold">Blog</h3>
+          <p class="mt-1 text-sm text-storm">Artículos de interés de la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Explora el sitio</h2>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="recursos.html" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <h3 class="font-bold text-lg group-hover:text-rausch transition">Recursos para aprender</h3>
+        <p class="mt-2 text-storm text-sm leading-relaxed">Una lista curada de plataformas gratuitas y de bajo costo para practicar programación, datos y habilidades digitales.</p>
+      </a>
+      <a href="convocatorias.html" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <h3 class="font-bold text-lg group-hover:text-rausch transition">Convocatorias y becas</h3>
+        <p class="mt-2 text-storm text-sm leading-relaxed">Becas, beneficios de ser estudiante y programas como GitHub Student Pack o Figma for Education.</p>
+      </a>
+      <a href="comercial.html" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <h3 class="font-bold text-lg group-hover:text-rausch transition">Comercial</h3>
+        <p class="mt-2 text-storm text-sm leading-relaxed">Enlaces de referencia a herramientas y servicios útiles para estudiantes. Apoyan el mantenimiento del sitio.</p>
+      </a>
+      <a href="blog.html" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <h3 class="font-bold text-lg group-hover:text-rausch transition">Blog</h3>
+        <p class="mt-2 text-storm text-sm leading-relaxed">Artículos de interés escritos por estudiantes: tutoriales, experiencias y noticias.</p>
+      </a>
+      <a href="transparencia.html" class="group rounded-2xl border border-line hover:border-ink transition p-6">
+        <h3 class="font-bold text-lg group-hover:text-rausch transition">Transparencia</h3>
+        <p class="mt-2 text-storm text-sm leading-relaxed">Información pública que la universidad está obligada a mostrar: finanzas, contratos y convocatorias.</p>
+      </a>
+      <div class="rounded-2xl bg-fog p-6">
+        <h3 class="font-bold text-lg">¿Quieres colaborar?</h3>
+        <p class="mt-2 text-storm text-sm leading-relaxed">Este es un proyecto de la comunidad. Súmate para escribir artículos o sugerir recursos.</p>
+        <a href="blog.html" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rausch hover:underline">Ver el blog →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-fog">
+    <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="w-7 h-7 rounded-lg flex items-center justify-center text-white font-bold text-xs" style="background: linear-gradient(90deg,#FF385C 0%,#E00B41 100%)">e</span>
+          <span class="font-bold">experiencia<span class="text-rausch">UNITI</span></span>
+        </div>
+        <p class="mt-4 text-storm">Sitio informativo hecho por estudiantes de la carrera de Programación e Innovación Digital, Universidad Intercultural para la Igualdad.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Secciones</h4>
+        <ul class="space-y-2 text-storm">
+          <li><a href="recursos.html" class="hover:underline">Recursos</a></li>
+          <li><a href="convocatorias.html" class="hover:underline">Convocatorias y Becas</a></li>
+          <li><a href="comercial.html" class="hover:underline">Comercial</a></li>
+          <li><a href="blog.html" class="hover:underline">Blog</a></li>
+          <li><a href="transparencia.html" class="hover:underline">Transparencia</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Aviso</h4>
+        <p class="text-storm">Sitio independiente de la comunidad estudiantil. No representa oficialmente a la universidad. Algunos enlaces son de referencia.</p>
+      </div>
+    </div>
+    <div class="border-t border-line py-6 text-center text-xs text-storm">© 2026 experienciaUNITI · Hecho con ❤ por estudiantes, para estudiantes</div>
+  </footer>
+
+  <style>[x-cloak]{display:none!important}</style>
+</body>
+</html>

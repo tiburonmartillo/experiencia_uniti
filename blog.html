@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | experienciaUNITI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rausch: '#FF385C', rauschdark: '#E00B41', ink: '#222222',
+            haze: '#3F3F3F', storm: '#6A6A6A', mute: '#929292',
+            fog: '#F7F7F7', line: '#DDDDDD', info: '#428BFF',
+          },
+          fontFamily: { cereal: ['Inter', 'Circular', '-apple-system', 'system-ui', 'Roboto', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-cereal font-medium text-ink bg-white" x-data="blogPage()">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl flex items-center justify-center text-white font-bold" style="background: linear-gradient(90deg,#FF385C 0%,#E00B41 100%)">e</span>
+        <span class="font-bold text-xl tracking-tight">experiencia<span class="text-rausch">UNITI</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="recursos.html" class="text-haze hover:text-ink transition">Recursos</a>
+        <a href="convocatorias.html" class="text-haze hover:text-ink transition">Convocatorias y Becas</a>
+        <a href="comercial.html" class="text-haze hover:text-ink transition">Comercial</a>
+        <a href="blog.html" class="text-ink">Blog</a>
+        <a href="transparencia.html" class="text-haze hover:text-ink transition">Transparencia</a>
+      </nav>
+      <a href="#publicar" class="inline-flex items-center bg-rausch text-white rounded-full py-2.5 px-5 text-sm font-semibold hover:bg-rauschdark transition shadow-sm">Publicar</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <p class="text-rausch font-bold text-xs mb-3">Voces de la comunidad</p>
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug">Blog</h1>
+    <p class="mt-4 text-storm text-lg max-w-2xl">Artículos de interés escritos por estudiantes: tutoriales, experiencias, convocatorias y noticias del ecosistema digital.</p>
+
+    <div class="mt-8 max-w-md">
+      <div class="flex items-center gap-3 border border-line rounded-full px-5 py-3 focus-within:border-ink transition">
+        <svg class="w-4 h-4 text-storm" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" x-model="query" placeholder="Buscar artículos…" class="w-full outline-none text-sm bg-transparent" />
+      </div>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template x-for="p in filtered()" :key="p.title">
+        <article class="group rounded-2xl border border-line hover:border-ink transition overflow-hidden bg-white flex flex-col">
+          <div class="h-36 flex items-center justify-center text-5xl bg-fog" x-text="p.icon"></div>
+          <div class="p-6 flex flex-col flex-1">
+            <span class="text-xs font-semibold text-haze" x-text="p.tag"></span>
+            <h2 class="mt-2 font-bold text-lg leading-snug group-hover:text-rausch transition" x-text="p.title"></h2>
+            <p class="mt-2 text-sm text-storm leading-relaxed flex-1" x-text="p.excerpt"></p>
+            <div class="mt-4 flex items-center justify-between text-xs text-storm">
+              <span x-text="p.author"></span>
+              <span x-text="p.date"></span>
+            </div>
+          </div>
+        </article>
+      </template>
+      <div x-show="filtered().length === 0" class="col-span-full text-center text-storm py-12" x-cloak>
+        No hay artículos que coincidan con tu búsqueda.
+      </div>
+    </div>
+
+    <section id="publicar" class="mt-16 rounded-2xl bg-fog p-8 md:p-10">
+      <h2 class="text-2xl font-extrabold tracking-tight">¿Quieres publicar un artículo?</h2>
+      <p class="mt-3 text-storm max-w-2xl">Comparte lo que aprendiste: un tutorial, una reseña de una beca, tu experiencia en un hackathon. Los artículos de la comunidad son el corazón de este blog.</p>
+      <div class="mt-6 grid md:grid-cols-3 gap-4 text-sm">
+        <div class="bg-white rounded-2xl p-5 border border-line">
+          <p class="font-bold">1. Propón tu tema</p>
+          <p class="mt-1 text-storm">Cuéntanos de qué quieres escribir y para quién.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 border border-line">
+          <p class="font-bold">2. Revisión entre pares</p>
+          <p class="mt-1 text-storm">Otro estudiante revisa el borrador y te da retroalimentación.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 border border-line">
+          <p class="font-bold">3. Se publica</p>
+          <p class="mt-1 text-storm">Tu artículo aparece en el blog con tu nombre como autor.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-fog">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-storm">
+      <span>© 2026 experienciaUNITI · Hecho por estudiantes, para estudiantes</span>
+      <div class="flex gap-4 font-semibold">
+        <a href="index.html" class="hover:underline">Inicio</a>
+        <a href="recursos.html" class="hover:underline">Recursos</a>
+        <a href="transparencia.html" class="hover:underline">Transparencia</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function blogPage() {
+      return {
+        query: '',
+        posts: [
+          { icon: '🚀', tag: 'Tutorial', title: 'Cómo obtener el GitHub Student Pack paso a paso', excerpt: 'Guía completa para activar tu paquete de desarrollador estudiante con tu correo institucional.', author: 'Equipo experienciaUNITI', date: 'Nov 2026' },
+          { icon: '🕵️', tag: 'Práctica', title: 'Resuelve un crimen y aprende SQL con SQL Murder Mystery', excerpt: 'Probamos el juego interactivo de SQL y te contamos por qué es perfecto para tu primer semestre.', author: 'Equipo experienciaUNITI', date: 'Nov 2026' },
+          { icon: '🎨', tag: 'Diseño', title: 'Figma for Education: qué incluye y cómo solicitarlo', excerpt: 'Dos años de Figma Professional gratis. Te explicamos el proceso de verificación.', author: 'Equipo experienciaUNITI', date: 'Oct 2026' },
+          { icon: '🤖', tag: 'IA', title: 'IBM SkillsBuild: rutas gratuitas de IA para estudiantes', excerpt: 'Analizamos las rutas de aprendizaje de IA y ciberseguridad y cómo obtener credenciales.', author: 'Equipo experienciaUNITI', date: 'Oct 2026' },
+        ],
+        filtered() {
+          const q = this.query.toLowerCase();
+          return this.posts.filter(p => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.tag.toLowerCase().includes(q));
+        },
+      };
+    }
+  </script>
+  <style>[x-cloak]{display:none!important}</style>
+</body>
+</html>
